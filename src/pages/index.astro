@@ -1,0 +1,861 @@
+---
+// Page principale "Nous" - Landing page premium
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Helenn Lab - Sites web professionnels premium" description="Création de sites web professionnels, modernes et performants. Livraison rapide en 24-48h, qualité premium, prix compétitifs.">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-content">
+        <h1 class="hero-title" id="hero-title">
+          <span class="title-line">Sites web professionnels</span>
+          <span class="title-line highlight">sur mesure</span>
+        </h1>
+      </div>
+    </div>
+    <div class="hero-decoration"></div>
+  </section>
+
+  <!-- Valeurs Section -->
+  <section class="values">
+    <div class="container">
+      <div class="section-header animate-on-scroll">
+        <div class="section-header-content">
+          <h2 class="section-title">Pourquoi choisir Helenn Lab ?</h2>
+          <blockquote class="section-quote">
+            <p class="section-intro">
+              Dans un monde digital qui ne s'arrête jamais, l'attente est votre pire ennemie. Que vous lanciez un nouveau projet ou que votre site actuel ne reflète plus votre expertise, chaque jour sans une présence en ligne optimisée est une opportunité perdue.
+            </p>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Helenn Lab - Fond blanc -->
+  <section class="helenn-story">
+    <div class="container">
+      <div class="story-content">
+        <h2 class="story-title">Helenn Lab a été créé pour briser les codes de l'agence web traditionnelle.</h2>
+        
+        <div class="story-pillars">
+          <div class="story-pillar">
+            <span class="pillar-number">01</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">L'urgence maîtrisée</h3>
+              <p class="pillar-text">
+                Nous ne faisons pas que "créer des sites", nous propulsons votre activité. Là où d'autres demandent des mois, nous livrons un résultat professionnel en 24 à 48 heures.
+              </p>
+            </div>
+          </div>
+
+          <div class="story-pillar">
+            <span class="pillar-number">02</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">La performance sans compromis</h3>
+              <p class="pillar-text">
+                Rapidité ne signifie pas précipitation. Nos structures sont pensées pour le SEO, le design moderne et une expérience utilisateur fluide dès la première seconde.
+              </p>
+            </div>
+          </div>
+
+          <div class="story-pillar">
+            <span class="pillar-number">03</span>
+            <div class="pillar-content">
+              <h3 class="pillar-title">Une agence à taille humaine</h3>
+              <p class="pillar-text">
+                Chez Helenn Lab, vous n'êtes pas un numéro de ticket. Nous travaillons en sprint intensif avec vous pour que votre vision prenne vie immédiatement.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Flash Section -->
+  <section class="services-flash">
+    <div class="container">
+      <div class="flash-header">
+        <h2 class="flash-title">Votre site pro, livré avant demain soir.</h2>
+        <p class="flash-intro">
+          Nous accompagnons les entrepreneurs, les PME et les indépendants qui ont besoin d'agilité. Notre processus est simple, direct et redoutablement efficace.
+        </p>
+      </div>
+
+      <div class="flash-services">
+        <h3 class="flash-subtitle">Nos services "Flash"</h3>
+        <div class="services-table">
+          <div class="table-header">
+            <div class="table-cell">Service</div>
+            <div class="table-cell">Délai</div>
+            <div class="table-cell">Idéal pour...</div>
+          </div>
+          <div class="table-row">
+            <div class="table-cell">Création de site vitrine</div>
+            <div class="table-cell">24h - 48h</div>
+            <div class="table-cell">Lancer votre activité avec élégance.</div>
+          </div>
+          <div class="table-row">
+            <div class="table-cell">Refonte Express</div>
+            <div class="table-cell">24h</div>
+            <div class="table-cell">Moderniser un site vieillissant et lent.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="flash-explanation">
+        <h3 class="flash-subtitle">Comment est-ce possible ?</h3>
+        <p class="flash-text">
+          Nous avons optimisé nos workflows et utilisons les meilleures technologies actuelles pour supprimer les fioritures administratives et nous concentrer sur l'essentiel : votre code, votre design, votre visibilité.
+        </p>
+      </div>
+
+      <blockquote class="flash-quote">
+        <p class="quote-text">
+          "Le meilleur moment pour lancer votre site était il y a un an. Le deuxième meilleur moment, c'est dans 24 heures avec Helenn Lab."
+        </p>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA Final Section -->
+  <section class="cta-final">
+    <div class="container">
+      <div class="cta-content animate-on-scroll">
+        <h2 class="cta-title">Discutons de votre projet</h2>
+        <p class="cta-description">
+          Prenez contact avec un membre de notre équipe qui vous répondra sous 24 heures.
+        </p>
+        <a href="/contact" class="btn btn-primary btn-large">NOUS CONTACTER</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  // Initialiser les animations au scroll avec stagger amélioré
+  function initScrollAnimations() {
+    if (typeof window === 'undefined') return;
+
+    const observerOptions = {
+      threshold: 0.15,
+      rootMargin: '0px 0px -80px 0px',
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          
+          // Stagger automatique pour les enfants dans les grilles
+          const parent = entry.target.parentElement;
+          if (parent && parent.classList.contains('values-grid')) {
+            const siblings = Array.from(parent.children).filter(
+              child => child.classList.contains('animate-on-scroll')
+            );
+            const index = siblings.indexOf(entry.target);
+            if (index >= 0 && !entry.target.hasAttribute('data-delay')) {
+              entry.target.setAttribute('data-delay', String(Math.min(index * 100, 400)));
+            }
+          }
+        }
+      });
+    }, observerOptions);
+
+    // Observer tous les éléments avec la classe .animate-on-scroll
+    const elements = document.querySelectorAll('.animate-on-scroll');
+    elements.forEach((el) => observer.observe(el));
+    
+    // Rendre visible immédiatement les éléments déjà dans le viewport (hero)
+    elements.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.8 && rect.bottom > 0) {
+        // Petit délai pour l'animation d'entrée
+        setTimeout(() => {
+          el.classList.add('visible');
+        }, 50);
+      }
+    });
+  }
+
+  // Initialiser au chargement
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initScrollAnimations);
+  } else {
+    setTimeout(initScrollAnimations, 150);
+  }
+
+
+</script>
+
+<style>
+  /* Hero Section - Premium amélioré */
+  .hero {
+    position: relative;
+    min-height: 95vh;
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    overflow: visible;
+    background: var(--header-bg);
+  }
+
+  .hero-decoration {
+    display: none;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translate(0, 0) scale(1);
+    }
+    50% {
+      transform: translate(-40px, -40px) scale(1.15);
+    }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero-title {
+    font-size: clamp(4rem, 12vw, 9rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.04em;
+    margin-bottom: 0;
+    color: var(--header-text);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .hero-title .title-line {
+    display: inline-block;
+  }
+
+  .hero-title .highlight {
+    color: var(--header-text);
+    display: block;
+    position: relative;
+  }
+
+
+  /* Buttons - Premium améliorés */
+  .btn {
+    display: inline-block;
+    padding: 1.125rem 2.25rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-smooth);
+    cursor: pointer;
+    border: none;
+    font-size: 1rem;
+    text-align: center;
+    letter-spacing: 0.01em;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary {
+    background-color: var(--cta);
+    color: var(--cta-text);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--cta-hover);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  }
+
+  .btn-primary:active {
+    transform: translateY(-1px);
+  }
+
+  .btn-large {
+    padding: 1.5rem 3rem;
+    font-size: 1.125rem;
+    font-weight: 600;
+  }
+
+  /* Values Section - Améliorée */
+  .values {
+    padding: var(--spacing-lg) 0;
+    background-color: var(--bg);
+  }
+
+  .section-header {
+    max-width: 1200px;
+    margin: 0 auto var(--spacing-md);
+    padding: 0 var(--spacing-md);
+  }
+
+  .section-header-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: center;
+    margin-bottom: 0;
+  }
+
+  .section-title {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    margin-bottom: 0;
+    letter-spacing: -0.02em;
+    color: var(--text-muted);
+    line-height: 1.2;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    text-align: left;
+  }
+
+  .section-quote {
+    margin: 0;
+    padding: 0;
+    border: none;
+    text-align: right;
+    position: relative;
+  }
+
+  .section-intro {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text-muted);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    font-style: italic;
+    margin: 0;
+    text-align: right;
+    position: relative;
+    padding: var(--spacing-sm) var(--spacing-xl) var(--spacing-md) var(--spacing-lg);
+  }
+
+  .section-intro::before {
+    content: '"';
+    font-size: 3.5rem;
+    line-height: 0.8;
+    color: var(--text-muted);
+    opacity: 0.5;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-family: Georgia, serif;
+    font-weight: normal;
+  }
+
+  .section-intro::after {
+    content: '"';
+    font-size: 3.5rem;
+    line-height: 0.8;
+    color: var(--text-muted);
+    opacity: 0.5;
+    position: absolute;
+    right: 0;
+    bottom: 0.5rem;
+    font-family: Georgia, serif;
+    font-weight: normal;
+  }
+
+  .section-description {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text-muted);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    text-align: left;
+    margin-top: var(--spacing-xl);
+  }
+
+  @media (max-width: 968px) {
+    .section-header-content {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-lg);
+    }
+
+    .section-title {
+      text-align: left;
+    }
+
+    .section-quote {
+      text-align: left;
+    }
+
+    .section-intro {
+      text-align: left;
+      padding-left: var(--spacing-xl);
+    }
+
+    .section-intro::before {
+      left: 0;
+    }
+  }
+
+  /* Section Helenn Lab - Fond blanc */
+  .helenn-story {
+    padding: var(--spacing-3xl) 0;
+    background-color: #ffffff;
+    position: relative;
+  }
+
+  .story-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .story-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    color: var(--bg);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    margin-bottom: var(--spacing-2xl);
+    text-align: center;
+    font-weight: 700;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .story-pillars {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+    align-items: stretch;
+  }
+
+  .story-pillar {
+    width: 100%;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: linear-gradient(135deg, #fafafa 0%, #ffffff 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(26, 61, 46, 0.08);
+    transition: all var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: var(--spacing-lg);
+  }
+
+  .story-pillar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(180deg, var(--bg) 0%, var(--bg-light) 100%);
+    opacity: 0;
+    transition: opacity var(--transition-base);
+  }
+
+  .story-pillar:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(26, 61, 46, 0.12);
+    border-color: rgba(26, 61, 46, 0.15);
+  }
+
+  .story-pillar:hover::before {
+    opacity: 1;
+  }
+
+  .pillar-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--bg);
+    opacity: 0.2;
+    line-height: 1;
+    font-family: var(--font-heading);
+    letter-spacing: -0.05em;
+    flex-shrink: 0;
+    min-width: 60px;
+  }
+
+  .pillar-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .pillar-title {
+    font-size: clamp(1.125rem, 1.8vw, 1.375rem);
+    color: var(--bg);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.4;
+    margin: 0 0 var(--spacing-sm) 0;
+    padding: 0;
+  }
+
+  .pillar-text {
+    font-size: clamp(0.9375rem, 1.3vw, 1.0625rem);
+    color: var(--bg);
+    line-height: 1.7;
+    letter-spacing: 0.01em;
+    margin: 0;
+    padding: 0;
+    opacity: 0.85;
+  }
+
+  @media (max-width: 768px) {
+    .story-pillar {
+      flex-direction: column;
+      gap: var(--spacing-md);
+    }
+
+    .pillar-number {
+      font-size: 2rem;
+    }
+
+    .story-title {
+      margin-bottom: var(--spacing-xl);
+    }
+  }
+
+  /* Services Flash Section */
+  .services-flash {
+    padding: var(--spacing-3xl) 0;
+    background-color: var(--bg);
+  }
+
+  .flash-header {
+    max-width: 900px;
+    margin: 0 auto var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .flash-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    color: var(--text);
+    margin-bottom: var(--spacing-md);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .flash-intro {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .flash-services {
+    max-width: 1000px;
+    margin: 0 auto var(--spacing-2xl);
+  }
+
+  .flash-subtitle {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    color: var(--text);
+    margin-bottom: var(--spacing-lg);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .services-table {
+    background-color: var(--card);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border);
+  }
+
+  .table-header {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    background-color: var(--bg-light);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .table-row {
+    display: grid;
+    grid-template-columns: 2fr 1fr 2fr;
+    border-bottom: 1px solid var(--border);
+    transition: background-color var(--transition-base);
+  }
+
+  .table-row:last-child {
+    border-bottom: none;
+  }
+
+  .table-row:hover {
+    background-color: var(--card-hover);
+  }
+
+  .table-cell {
+    padding: var(--spacing-md);
+    color: var(--text);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+    line-height: 1.6;
+    display: flex;
+    align-items: center;
+  }
+
+  .table-header .table-cell {
+    font-weight: 600;
+    color: var(--text);
+    font-size: clamp(1rem, 1.5vw, 1.125rem);
+  }
+
+  .table-row .table-cell:first-child {
+    font-weight: 500;
+  }
+
+  .table-row .table-cell:nth-child(2) {
+    font-weight: 600;
+    color: var(--cta);
+    justify-content: center;
+  }
+
+  .flash-explanation {
+    max-width: 900px;
+    margin: 0 auto var(--spacing-2xl);
+    text-align: center;
+  }
+
+  .flash-text {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text);
+    line-height: 1.8;
+    letter-spacing: 0.01em;
+  }
+
+  .flash-quote {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: var(--spacing-xl);
+    text-align: center;
+    border: none;
+    position: relative;
+  }
+
+  .quote-text {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--text);
+    line-height: 1.7;
+    font-style: italic;
+    letter-spacing: 0.01em;
+    position: relative;
+    padding: 0 var(--spacing-xl);
+  }
+
+  .quote-text::before {
+    content: '"';
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--text);
+    opacity: 0.3;
+    position: absolute;
+    left: 0;
+    top: -0.5rem;
+    font-family: Georgia, serif;
+  }
+
+  .quote-text::after {
+    content: '"';
+    font-size: 4rem;
+    line-height: 1;
+    color: var(--text);
+    opacity: 0.3;
+    position: absolute;
+    right: 0;
+    bottom: -1.5rem;
+    font-family: Georgia, serif;
+  }
+
+  @media (max-width: 768px) {
+    .table-header,
+    .table-row {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-sm);
+    }
+
+    .table-cell {
+      padding: var(--spacing-sm);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .table-header .table-cell,
+    .table-row .table-cell {
+      border-bottom: none;
+    }
+
+    .table-row {
+      border-bottom: 2px solid var(--border);
+    }
+
+    .table-row:last-child {
+      border-bottom: none;
+    }
+  }
+
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-2xl);
+  }
+
+  .value-card {
+    padding: var(--spacing-lg);
+    background-color: var(--bg-light);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    transition: all var(--transition-smooth);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+  }
+
+  .value-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    border-color: var(--cta);
+    background-color: var(--card);
+  }
+
+  .value-icon {
+    font-size: 3.5rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    text-align: center;
+    min-height: 64px;
+  }
+
+  .value-icon .icon-img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    display: block;
+    filter: brightness(0) saturate(100%) invert(96%) sepia(5%) saturate(1000%) hue-rotate(15deg) brightness(95%) contrast(90%);
+    /* Filtre CSS pour transformer les icônes en couleur beige (--text: #f5f1e8) */
+    opacity: 0.95;
+  }
+
+  .value-icon .icon-fallback {
+    display: none;
+    font-size: 3.5rem;
+    color: var(--text);
+  }
+
+  .value-title {
+    font-size: clamp(1.375rem, 2vw, 1.75rem);
+    margin-bottom: var(--spacing-sm);
+    color: var(--text);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-align: center;
+  }
+
+  .value-text {
+    color: var(--text-muted);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+    font-size: 1rem;
+    text-align: center;
+  }
+
+
+  /* CTA Final Section - Améliorée */
+  .cta-final {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-dark);
+    color: var(--text);
+    text-align: center;
+  }
+
+  .cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .cta-title {
+    font-size: clamp(2.5rem, 5.5vw, 4rem);
+    margin-bottom: var(--spacing-lg);
+    color: var(--text);
+    letter-spacing: -0.02em;
+    font-weight: 700;
+  }
+
+  .cta-description {
+    font-size: clamp(1.125rem, 2vw, 1.375rem);
+    color: var(--text-muted);
+    margin-bottom: var(--spacing-xl);
+    line-height: 1.75;
+    letter-spacing: 0.01em;
+  }
+
+  .cta-final .btn-primary {
+    background-color: var(--cta);
+    color: var(--cta-text);
+  }
+
+  .cta-final .btn-primary:hover {
+    background-color: var(--cta-hover);
+  }
+
+  /* Responsive - Amélioré */
+  @media (max-width: 968px) {
+    .hero {
+      min-height: 85vh;
+      padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: var(--spacing-md);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: 80vh;
+      padding: var(--spacing-xl) 0;
+    }
+
+    .hero-title {
+      font-size: clamp(3.5rem, 11vw, 6rem);
+      margin-bottom: var(--spacing-md);
+    }
+
+    .hero-description {
+      font-size: clamp(1.125rem, 3vw, 1.25rem);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .values {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .cta-final {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .section-header {
+      margin-bottom: var(--spacing-lg);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+</style>

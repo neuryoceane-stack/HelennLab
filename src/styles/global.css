@@ -1,0 +1,246 @@
+/* ============================================
+   Reset & Variables CSS
+   ============================================ */
+
+:root {
+  /* Palette vert sapin premium + beige */
+  /* Background principal - vert sapin profond */
+  --bg: #1a3d2e;
+  --bg-dark: #152a20;
+  --bg-light: #2a5a47;
+  
+  /* Textes - blanc sur fonds foncés */
+  --text: #ffffff;
+  --text-muted: #ffffff;
+  --text-secondary: #ffffff;
+  
+  /* Cartes et sections - vert sapin plus clair */
+  --card: #234a3a;
+  --card-hover: #2d5a48;
+  
+  /* Bordures - vert/gris discret */
+  --border: #2d4a3a;
+  --border-light: #3a5a4a;
+  
+  /* CTA - teinte plus claire/saturée du vert */
+  --cta: #4a7c5f;
+  --cta-hover: #5a8c6f;
+  --cta-text: #f5f1e8;
+  
+  /* Header - fond clair blanc-beige */
+  --header-bg: #faf9f6;
+  --header-text: #1a3d2e;
+  
+  /* Variables de compatibilité (pour transition) */
+  --color-primary: var(--bg-dark);
+  --color-secondary: var(--text);
+  --color-accent: var(--cta);
+  --color-accent-hover: var(--cta-hover);
+  --color-text: var(--text);
+  --color-text-light: var(--text-muted);
+  --color-bg: var(--bg);
+  --color-bg-light: var(--card);
+  --color-border: var(--border);
+
+  /* Typographie */
+  --font-primary: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-heading: var(--font-primary);
+
+  /* Espacements - Améliorés pour plus de respiration */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 2rem;
+  --spacing-lg: 4rem;
+  --spacing-xl: 6rem;
+  --spacing-2xl: 10rem;
+  --spacing-3xl: 12rem;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+  --transition-smooth: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* Largeurs */
+  --container-max-width: 1200px;
+  --container-padding: 1.5rem;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+
+  /* Ombres */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.12);
+  --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.16);
+}
+
+/* Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  color: var(--text);
+  background-color: var(--bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Typographie - Hiérarchie renforcée */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--text);
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: clamp(2.75rem, 7vw, 5.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: clamp(2.25rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+h3 {
+  font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+p {
+  margin-bottom: 1.25rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+a {
+  color: var(--cta);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--cta-hover);
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Utilitaires */
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+/* Animations de base */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/* Classes d'animation pour Intersection Observer - Améliorées */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity var(--transition-smooth), transform var(--transition-smooth);
+}
+
+.animate-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Variantes d'animation avec délais pour stagger */
+.animate-on-scroll[data-delay="100"] {
+  transition-delay: 0.1s;
+}
+
+.animate-on-scroll[data-delay="200"] {
+  transition-delay: 0.2s;
+}
+
+.animate-on-scroll[data-delay="300"] {
+  transition-delay: 0.3s;
+}
+
+.animate-on-scroll[data-delay="400"] {
+  transition-delay: 0.4s;
+}
+
+/* Fallback : rendre visible si JavaScript est désactivé */
+.no-js .animate-on-scroll {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 1rem;
+    --spacing-lg: 3rem;
+    --spacing-xl: 4rem;
+    --spacing-2xl: 5rem;
+  }
+}
